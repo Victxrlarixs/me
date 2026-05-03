@@ -1,4 +1,8 @@
-// Reconstruct email from split data attributes — avoids plaintext in HTML
+/**
+ * Reconstructs an email address from data attributes to prevent scraping.
+ * @param el - The HTMLElement containing data-e1 and data-e2 attributes.
+ * @returns The full email address string.
+ */
 const buildEmail = (el: HTMLElement): string => {
   const e1 = el.dataset.e1 ?? '';
   const e2 = el.dataset.e2 ?? '';

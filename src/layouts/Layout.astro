@@ -17,38 +17,32 @@ import ScrollProgress from '../components/ScrollProgress.astro';
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- Primary Meta Tags -->
     <title>{title}</title>
     <meta name="title" content={title} />
     <meta name="description" content={description} />
 
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://victxrlarixs.com/" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content="https://victxrlarixs.com/og-image.png" />
 
-    <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://victxrlarixs.com/" />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content="https://victxrlarixs.com/og-image.png" />
 
-    <!-- Premium Typography: Outfit & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
 
-    <!-- DevIcons -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
     />
   </head>
   <body class="bg-slate-50 text-slate-900 font-inter selection:bg-violet-100 selection:text-violet-900 overflow-x-hidden">
-    <!-- Ambient Background Motion -->
     <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none" aria-hidden="true">
       <div class="absolute top-[-15%] left-[-15%] w-[60%] h-[60%] rounded-full bg-violet-300/50 blur-[100px] animate-ambient-1"></div>
       <div class="absolute bottom-[-15%] right-[-15%] w-[55%] h-[55%] rounded-full bg-blue-300/40 blur-[100px] animate-ambient-2"></div>
@@ -58,15 +52,12 @@ import ScrollProgress from '../components/ScrollProgress.astro';
     <ScrollProgress />
 
     <slot />
-
-
-
   </body>
 </html>
 
 <style is:global>
   @import "../styles/global.css";
-  /* Ambient Animations */
+
   @keyframes ambient-1 {
     0%, 100% { transform: translate(0, 0) scale(1); }
     33% { transform: translate(10%, 10%) scale(1.1); }
@@ -88,12 +79,8 @@ import ScrollProgress from '../components/ScrollProgress.astro';
     70% { transform: translate(-10%, 8%) scale(0.88); }
   }
   .animate-ambient-3 { animation: ambient-3 30s ease-in-out infinite; }
-  /* Typography Defaults */
+
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Outfit', sans-serif;
   }
-
-
-
-
 </style>

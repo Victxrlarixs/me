@@ -1,4 +1,3 @@
-// Active link highlighting — Intersection Observer
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('[data-nav-link]') as NodeListOf<HTMLElement>;
 
@@ -16,7 +15,6 @@ const observer = new IntersectionObserver(
       });
     });
   },
-  // Trigger when section crosses the upper 45% of viewport
   { rootMargin: '-10% 0px -50% 0px', threshold: 0 }
 );
 

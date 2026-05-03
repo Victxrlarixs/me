@@ -11,8 +11,6 @@ import avatarImg from '@/assets/avatar.png';
 >
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="glass rounded-[2.5rem] p-8 sm:p-12 overflow-hidden relative">
-      
-      <!-- Background accent -->
       <div
         class="absolute top-0 right-0 w-64 h-64 rounded-full blur-3xl opacity-5 pointer-events-none"
         style="background: radial-gradient(circle, #7c3aed 0%, transparent 70%);"
@@ -20,8 +18,6 @@ import avatarImg from '@/assets/avatar.png';
       ></div>
       
       <div class="grid lg:grid-cols-[280px_1fr] gap-12 items-start relative z-10">
-        
-        <!-- Left Column: Avatar & Quick Info -->
         <div class="flex flex-col items-center lg:items-start gap-8">
           <div class="relative group">
             <div
@@ -46,7 +42,6 @@ import avatarImg from '@/assets/avatar.png';
               <p class="text-violet-600 font-bold text-xs uppercase tracking-widest">Programmer Padawan</p>
             </div>
             
-            <!-- Social Links -->
             <div class="flex items-center justify-center lg:justify-start gap-3 pt-2">
               <a 
                 href="https://github.com/Victxrlarixs" 
@@ -72,10 +67,7 @@ import avatarImg from '@/assets/avatar.png';
           </div>
         </div>
 
-        <!-- Right Column: Story & Stack -->
         <div class="space-y-12">
-          
-          <!-- Bio -->
           <div class="space-y-6">
             <div>
               <span class="text-[10px] font-black tracking-[0.3em] uppercase text-slate-400 block mb-2">Creative Solutions</span>
@@ -92,8 +84,6 @@ import avatarImg from '@/assets/avatar.png';
             </div>
           </div>
 
-
-          <!-- Categorized Stack -->
           <div class="pt-5 border-t border-black/[0.03] space-y-4">
             {['Backend', 'Frontend & Mobile', 'Databases', 'Systems & DevOps'].map((cat) => (
               <div class="space-y-2">
@@ -105,7 +95,6 @@ import avatarImg from '@/assets/avatar.png';
                         class="group flex items-center gap-2.5 px-3 py-1.5 rounded-xl border border-black/[0.03] bg-white/40 hover:bg-white hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 cursor-default relative overflow-hidden"
                         title={tech.name}
                       >
-                        <!-- Hover Glow Effect -->
                         <div 
                           class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl -z-10"
                           style={`background: radial-gradient(circle at center, ${tech.bgColor}, transparent 70%);`}
@@ -122,9 +111,7 @@ import avatarImg from '@/assets/avatar.png';
               </div>
             ))}
           </div>
-
         </div>
-
       </div>
     </div>
   </div>

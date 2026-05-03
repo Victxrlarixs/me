@@ -1,9 +1,11 @@
-/**
- * Utility to fetch GitHub stars with a simple cache during build.
- */
-
 const starsCache = new Map<string, number>();
 
+/**
+ * Fetches the number of stars for a given GitHub repository URL.
+ * Includes a simple build-time cache to avoid redundant API calls.
+ * @param url - The full GitHub repository URL.
+ * @returns A promise that resolves to the number of stars.
+ */
 export const fetchGitHubStars = async (url: string): Promise<number> => {
   if (!url || !url.includes('github.com')) return 0;
   
@@ -14,7 +16,6 @@ export const fetchGitHubStars = async (url: string): Promise<number> => {
     const response = await fetch(`https://api.github.com/repos/${repoPath}`, {
       headers: { 
         'User-Agent': 'Astro-Portfolio-Victxrlarixs',
-        // In a real production environment, you would use a GITHUB_TOKEN here
         ...(import.meta.env.GITHUB_TOKEN ? { 'Authorization': `token ${import.meta.env.GITHUB_TOKEN}` } : {})
       }
     });

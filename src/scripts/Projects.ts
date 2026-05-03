@@ -1,7 +1,6 @@
 const cards = document.querySelectorAll('.project-card') as NodeListOf<HTMLElement>;
 const featuredGrid = document.querySelector('[aria-label="Featured projects"]') as HTMLElement | null;
 
-// --- 3D tilt effect ---
 cards.forEach(card => {
   card.addEventListener('mousemove', (e: MouseEvent) => {
     const rect = card.getBoundingClientRect();
@@ -25,12 +24,10 @@ cards.forEach(card => {
   });
 });
 
-// --- Filter logic ---
 const filterBtns = document.querySelectorAll('.filter-btn');
 
 filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
-    // Update active button styles
     filterBtns.forEach(b => {
       b.classList.remove('bg-slate-900', 'text-white', 'shadow-md', 'shadow-slate-900/20');
       b.classList.add('bg-white/50', 'text-slate-500');
@@ -44,14 +41,11 @@ filterBtns.forEach(btn => {
       const categories = card.dataset.categories || '';
       const isMatch = filter === 'all' || categories.includes(filter);
 
-      // Lab cards live inside a <li> — hide the whole <li> so the grid collapses.
-      // Featured cards are direct children of the grid — hide the <article> itself.
       const wrapper = (card.closest('li') ?? card) as HTMLElement;
       wrapper.style.display = isMatch ? '' : 'none';
       card.style.pointerEvents = isMatch ? 'auto' : 'none';
     });
 
-    // Hide the entire featured section if none of its cards match
     if (featuredGrid) {
       const featuredCards = Array.from(
         featuredGrid.querySelectorAll('.project-card')

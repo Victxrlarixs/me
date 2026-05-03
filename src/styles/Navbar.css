@@ -1,0 +1,19 @@
+/* Neutral Active State */
+.nav-link.active {
+  color: #000000;
+}
+
+.nav-link.active span {
+  width: 100%;
+}
+
+/* Progress bar color change to Neutral */
+#scroll-progress {
+  background-color: #000000 !important;
+  height: 2px !important;
+}
+
+/* Spacing for content - Removed redundant padding */
+body {
+  padding-top: 0;
+}

@@ -1,0 +1,147 @@
+---
+// Stack / Technologies section
+
+interface Tech {
+  name: string;
+  color: string;
+  bgColor: string;
+  borderColor: string;
+  icon: string;
+}
+
+const technologies: Tech[] = [
+  {
+    name: 'Laravel',
+    color: '#FF2D20',
+    bgColor: 'rgba(255, 45, 32, 0.05)',
+    borderColor: 'rgba(255, 45, 32, 0.1)',
+    icon: 'devicon-laravel-original',
+  },
+  {
+    name: 'React',
+    color: '#0891b2',
+    bgColor: 'rgba(8, 145, 178, 0.05)',
+    borderColor: 'rgba(8, 145, 178, 0.1)',
+    icon: 'devicon-react-original',
+  },
+  {
+    name: 'TypeScript',
+    color: '#3178C6',
+    bgColor: 'rgba(49, 120, 198, 0.05)',
+    borderColor: 'rgba(49, 120, 198, 0.1)',
+    icon: 'devicon-typescript-plain',
+  },
+  {
+    name: 'JavaScript',
+    color: '#ca8a04',
+    bgColor: 'rgba(202, 138, 4, 0.05)',
+    borderColor: 'rgba(202, 138, 4, 0.1)',
+    icon: 'devicon-javascript-plain',
+  },
+  {
+    name: 'Node.js',
+    color: '#16a34a',
+    bgColor: 'rgba(22, 163, 74, 0.05)',
+    borderColor: 'rgba(22, 163, 74, 0.1)',
+    icon: 'devicon-nodejs-plain',
+  },
+  {
+    name: 'Tailwind',
+    color: '#0ea5e9',
+    bgColor: 'rgba(14, 165, 233, 0.05)',
+    borderColor: 'rgba(14, 165, 233, 0.1)',
+    icon: 'devicon-tailwindcss-original',
+  },
+  {
+    name: 'MariaDB',
+    color: '#003545',
+    bgColor: 'rgba(0, 53, 69, 0.05)',
+    borderColor: 'rgba(0, 53, 69, 0.1)',
+    icon: 'devicon-mariadb-original',
+  },
+  {
+    name: 'MongoDB',
+    color: '#15803d',
+    bgColor: 'rgba(21, 128, 61, 0.05)',
+    borderColor: 'rgba(21, 128, 61, 0.1)',
+    icon: 'devicon-mongodb-plain',
+  },
+  {
+    name: 'Git',
+    color: '#dc2626',
+    bgColor: 'rgba(220, 38, 38, 0.05)',
+    borderColor: 'rgba(220, 38, 38, 0.1)',
+    icon: 'devicon-git-plain',
+  },
+  {
+    name: 'Docker',
+    color: '#2563eb',
+    bgColor: 'rgba(37, 99, 235, 0.05)',
+    borderColor: 'rgba(37, 99, 235, 0.1)',
+    icon: 'devicon-docker-plain',
+  },
+  {
+    name: 'Next.js',
+    color: '#000000',
+    bgColor: 'rgba(0, 0, 0, 0.03)',
+    borderColor: 'rgba(0, 0, 0, 0.08)',
+    icon: 'devicon-nextjs-plain',
+  },
+];
+---
+
+<section
+  id="stack"
+  class="py-20 sm:py-28 relative"
+  aria-labelledby="stack-heading"
+>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="glass rounded-[2.5rem] p-8 sm:p-12 relative overflow-hidden">
+      <div class="grid md:grid-cols-[1fr_2fr] gap-10 items-center">
+        
+        <!-- Left: heading -->
+        <div>
+          <span class="text-xs font-black tracking-widest uppercase text-violet-600 block mb-3">Technologies</span>
+          <h2
+            id="stack-heading"
+            class="text-3xl sm:text-4xl font-black text-slate-900 leading-tight"
+          >
+            Tools
+            <span class="block text-slate-500">I work with</span>
+          </h2>
+        </div>
+
+        <!-- Right: Icons grid -->
+        <div>
+          <ul
+            class="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-3"
+            role="list"
+            aria-label="Technologies I use"
+          >
+            {technologies.map((tech) => (
+              <li>
+                <div
+                  class="group flex flex-col items-center gap-2 p-3 rounded-2xl border transition-all duration-300 cursor-default hover:scale-110 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5"
+                  style={`background: ${tech.bgColor}; border-color: ${tech.borderColor};`}
+                  title={tech.name}
+                  role="img"
+                  aria-label={tech.name}
+                >
+                  <i 
+                    class={`${tech.icon} text-3xl transition-colors duration-200`}
+                    style={`color: ${tech.color};`}
+                    aria-hidden="true"
+                  ></i>
+                  <span class="text-[9px] font-black text-slate-500 group-hover:text-slate-900 transition-colors duration-200 leading-none tracking-wide uppercase">
+                    {tech.name}
+                  </span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

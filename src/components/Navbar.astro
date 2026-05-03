@@ -1,0 +1,33 @@
+---
+// Ultra-Minimalist Transparent Header
+const navLinks = [
+  { href: '#about', label: 'About' },
+  { href: '#projects', label: 'Projects' },
+  { href: '#contact', label: 'Contact' },
+];
+import '../styles/Navbar.css';
+---
+<header 
+  class="fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-xl border-b border-black/[0.03]"
+  id="main-header"
+  role="banner"
+>
+  <div class="max-w-6xl mx-auto px-6 h-14 sm:h-16 flex items-center justify-center">
+    <!-- Centered Navigation -->
+    <nav class="flex items-center gap-4 sm:gap-10" role="navigation">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          data-nav-link
+          class="nav-link px-2 py-1 text-[11px] font-black uppercase tracking-[0.25em] text-slate-500 hover:text-black transition-all duration-300 relative group"
+        >
+          {link.label}
+          <!-- Minimalist underline indicator -->
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"></span>
+        </a>
+      ))}
+    </nav>
+  </div>
+</header>
+
+<script src="../scripts/Navbar.ts"></script>

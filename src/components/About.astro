@@ -1,0 +1,131 @@
+---
+import { technologies } from '@/data/technologies';
+import { Image } from 'astro:assets';
+import avatarImg from '@/assets/avatar.png';
+---
+
+<section
+  id="about"
+  class="pt-16 pb-12 sm:pt-20 sm:pb-16 relative"
+  aria-labelledby="about-heading"
+>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="glass rounded-[2.5rem] p-8 sm:p-12 overflow-hidden relative">
+      
+      <!-- Background accent -->
+      <div
+        class="absolute top-0 right-0 w-64 h-64 rounded-full blur-3xl opacity-5 pointer-events-none"
+        style="background: radial-gradient(circle, #7c3aed 0%, transparent 70%);"
+        aria-hidden="true"
+      ></div>
+      
+      <div class="grid lg:grid-cols-[280px_1fr] gap-12 items-start relative z-10">
+        
+        <!-- Left Column: Avatar & Quick Info -->
+        <div class="flex flex-col items-center lg:items-start gap-8">
+          <div class="relative group">
+            <div
+              class="absolute inset-0 rounded-3xl blur-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-500"
+              style="background: linear-gradient(135deg, #7c3aed 0%, #6366f1 100%);"
+            ></div>
+            <div class="relative w-48 h-48 lg:w-56 lg:h-56 rounded-3xl overflow-hidden border border-white/60 shadow-2xl bg-white">
+              <Image 
+                src={avatarImg} 
+                alt="Victxrlarixs" 
+                class="w-full h-full object-cover"
+                width={224}
+                height={224}
+                loading="eager"
+              />
+            </div>
+          </div>
+
+          <div class="text-center lg:text-left space-y-4">
+            <div class="space-y-1">
+              <p class="text-slate-900 font-black text-xl tracking-tight">Victxrlarixs</p>
+              <p class="text-violet-600 font-bold text-xs uppercase tracking-widest">Programmer Padawan</p>
+            </div>
+            
+            <!-- Social Links -->
+            <div class="flex items-center justify-center lg:justify-start gap-3 pt-2">
+              <a 
+                href="https://github.com/Victxrlarixs" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="group flex items-center gap-2 px-3 py-1.5 rounded-xl border border-black/[0.03] bg-white/50 hover:bg-white hover:shadow-lg hover:shadow-black/5 transition-all duration-300"
+                aria-label="GitHub Profile"
+              >
+                <i class="devicon-github-original text-xl text-slate-400 group-hover:text-black transition-colors duration-300"></i>
+                <span class="text-[10px] font-black uppercase tracking-widest text-slate-400 group-hover:text-black">GitHub</span>
+              </a>
+              <a 
+                href="https://www.linkedin.com/in/victxrlarixs/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="group flex items-center gap-2 px-3 py-1.5 rounded-xl border border-black/[0.03] bg-white/50 hover:bg-white hover:shadow-lg hover:shadow-black/5 transition-all duration-300"
+                aria-label="LinkedIn Profile"
+              >
+                <i class="devicon-linkedin-plain text-xl text-slate-400 group-hover:text-[#0077B5] transition-colors duration-300"></i>
+                <span class="text-[10px] font-black uppercase tracking-widest text-slate-400 group-hover:text-black">LinkedIn</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Story & Stack -->
+        <div class="space-y-12">
+          
+          <!-- Bio -->
+          <div class="space-y-6">
+            <div>
+              <span class="text-[10px] font-black tracking-[0.3em] uppercase text-slate-400 block mb-2">Creative Solutions</span>
+              <h1 id="about-heading" class="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight text-slate-900 tracking-tight">
+                Building products <br/>
+                <span class="text-slate-400">from conception to reality.</span>
+              </h1>
+            </div>
+            <div>
+              <p class="text-slate-600 leading-relaxed text-lg max-w-2xl font-medium">
+                Software Engineer focused on building high-performance applications and creative digital experiences. 
+                I specialize in crafting scalable backend solutions and immersive frontend interfaces that bridge the gap between design and technology.
+              </p>
+            </div>
+          </div>
+
+
+          <!-- Categorized Stack -->
+          <div class="pt-5 border-t border-black/[0.03] space-y-4">
+            {['Backend', 'Frontend & Mobile', 'Databases', 'Systems & DevOps'].map((cat) => (
+              <div class="space-y-2">
+                <span class="text-[9px] font-black tracking-[0.2em] uppercase text-slate-400 block">{cat}</span>
+                <ul class="flex flex-wrap gap-1.5" role="list">
+                  {technologies.filter(t => t.category === cat).map((tech) => (
+                    <li>
+                      <div
+                        class="group flex items-center gap-2.5 px-3 py-1.5 rounded-xl border border-black/[0.03] bg-white/40 hover:bg-white hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 cursor-default relative overflow-hidden"
+                        title={tech.name}
+                      >
+                        <!-- Hover Glow Effect -->
+                        <div 
+                          class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl -z-10"
+                          style={`background: radial-gradient(circle at center, ${tech.bgColor}, transparent 70%);`}
+                        ></div>
+                        
+                        <i class={`${tech.icon} text-base transition-transform duration-300 group-hover:scale-110`} style={`color: ${tech.color};`}></i>
+                        <span class="text-[9px] font-black text-slate-500 group-hover:text-slate-900 tracking-wide uppercase">
+                          {tech.name}
+                        </span>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

@@ -42,11 +42,10 @@ import ScrollProgress from '../components/ScrollProgress.astro';
       href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
     />
   </head>
-  <body class="bg-slate-50 text-slate-900 font-inter selection:bg-violet-100 selection:text-violet-900 overflow-x-hidden">
+  <body class="bg-[#f8fafc] text-slate-900 font-inter selection:bg-violet-100 selection:text-violet-900 overflow-x-hidden">
     <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none" aria-hidden="true">
-      <div class="absolute top-[-15%] left-[-15%] w-[60%] h-[60%] rounded-full bg-violet-300/50 blur-[100px] animate-ambient-1"></div>
-      <div class="absolute bottom-[-15%] right-[-15%] w-[55%] h-[55%] rounded-full bg-blue-300/40 blur-[100px] animate-ambient-2"></div>
-      <div class="absolute top-[30%] left-[25%] w-[50%] h-[50%] rounded-full bg-fuchsia-200/35 blur-[120px] animate-ambient-3"></div>
+      <!-- Subtle Dot Grid Background -->
+      <div class="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:32px_32px] opacity-40"></div>
     </div>
 
     <ScrollProgress />
@@ -57,28 +56,6 @@ import ScrollProgress from '../components/ScrollProgress.astro';
 
 <style is:global>
   @import "../styles/global.css";
-
-  @keyframes ambient-1 {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    33% { transform: translate(10%, 10%) scale(1.1); }
-    66% { transform: translate(-5%, 15%) scale(0.9); }
-  }
-  
-  @keyframes ambient-2 {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    33% { transform: translate(-15%, -5%) scale(0.9); }
-    66% { transform: translate(5%, -15%) scale(1.1); }
-  }
-
-  .animate-ambient-1 { animation: ambient-1 20s ease-in-out infinite; }
-  .animate-ambient-2 { animation: ambient-2 25s ease-in-out infinite; }
-
-  @keyframes ambient-3 {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    40% { transform: translate(8%, -12%) scale(1.15); }
-    70% { transform: translate(-10%, 8%) scale(0.88); }
-  }
-  .animate-ambient-3 { animation: ambient-3 30s ease-in-out infinite; }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Outfit', sans-serif;

@@ -11,19 +11,10 @@ import avatarImg from '@/assets/avatar.png';
 >
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="glass rounded-[2.5rem] p-8 sm:p-12 overflow-hidden relative">
-      <div
-        class="absolute top-0 right-0 w-64 h-64 rounded-full blur-3xl opacity-5 pointer-events-none"
-        style="background: radial-gradient(circle, #7c3aed 0%, transparent 70%);"
-        aria-hidden="true"
-      ></div>
       
       <div class="grid lg:grid-cols-[280px_1fr] gap-12 items-start relative z-10">
         <div class="flex flex-col items-center lg:items-start gap-8">
           <div class="relative group">
-            <div
-              class="absolute inset-0 rounded-3xl blur-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-500"
-              style="background: linear-gradient(135deg, #7c3aed 0%, #6366f1 100%);"
-            ></div>
             <div class="relative w-48 h-48 lg:w-56 lg:h-56 rounded-3xl overflow-hidden border border-white/60 shadow-2xl bg-white">
               <Image 
                 src={avatarImg} 
@@ -39,7 +30,7 @@ import avatarImg from '@/assets/avatar.png';
           <div class="text-center lg:text-left space-y-4">
             <div class="space-y-1">
               <p class="text-slate-900 font-black text-xl tracking-tight">Victxrlarixs</p>
-              <p class="text-violet-600 font-bold text-xs uppercase tracking-widest">Programmer Padawan</p>
+              <p class="text-indigo-600 font-bold text-xs uppercase tracking-widest">Programmer Padawan</p>
             </div>
             
             <div class="flex items-center justify-center lg:justify-start gap-3 pt-2">
@@ -95,11 +86,6 @@ import avatarImg from '@/assets/avatar.png';
                         class="group flex items-center gap-2.5 px-3 py-1.5 rounded-xl border border-black/[0.03] bg-white/40 hover:bg-white hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 cursor-default relative overflow-hidden"
                         title={tech.name}
                       >
-                        <div 
-                          class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl -z-10"
-                          style={`background: radial-gradient(circle at center, ${tech.bgColor}, transparent 70%);`}
-                        ></div>
-                        
                         <i class={`${tech.icon} text-base transition-transform duration-300 group-hover:scale-110`} style={`color: ${tech.color};`}></i>
                         <span class="text-[9px] font-black text-slate-500 group-hover:text-slate-900 tracking-wide uppercase">
                           {tech.name}

@@ -1,6 +1,6 @@
 # Victxrlarixs — Portfolio
 
-Personal portfolio and project showcase. Built with a focus on high performance, minimalist "Bento" design, and technical precision.
+Personal portfolio and project showcase. 
 
 [**View Live Site →**](https://victxrlarixs.github.io/me/)
 

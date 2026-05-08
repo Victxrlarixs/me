@@ -1,6 +1,9 @@
 import type { ImageMetadata } from 'astro';
 import verbenaApp from '@/assets/projects/verbena-app.png';
 import verbenaGift from '@/assets/projects/verbena-gift.png';
+import r2d2Monitor from '@/assets/projects/r2d2-monitor.png';
+import debianTimeCapsule from '@/assets/projects/debian-time-capsule.png';
+import gameboyCamera from '@/assets/projects/gameboy-camera-studio.png';
 
 export interface Project {
   id: string;
@@ -58,6 +61,7 @@ export const projects: Project[] = [
     featured: false,
     gradient: 'from-slate-900 via-blue-900/40 to-slate-800/50',
     accentColor: '#00ADD8',
+    image: r2d2Monitor,
     vibe: 'terminal',
   },
   {
@@ -71,6 +75,7 @@ export const projects: Project[] = [
     featured: false,
     gradient: 'from-[#A81D33]/30 via-slate-900/60 to-black',
     accentColor: '#A81D33',
+    image: debianTimeCapsule,
     vibe: 'creative',
   },
   {
@@ -84,6 +89,7 @@ export const projects: Project[] = [
     featured: false,
     gradient: 'from-[#8bac0f]/30 via-emerald-900/40 to-slate-900/60',
     accentColor: '#8bac0f',
+    image: gameboyCamera,
     vibe: 'creative',
   },
 ];

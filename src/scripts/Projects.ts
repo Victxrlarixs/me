@@ -58,3 +58,65 @@ filterBtns.forEach(btn => {
     }
   });
 });
+
+const fetchGitHubStars = async () => {
+  const badges = document.querySelectorAll('.github-stars-badge') as NodeListOf<HTMLElement>;
+  if (!badges.length) return;
+
+  const CACHE_KEY = 'github_stars_cache';
+  const CACHE_EXPIRY = 1000 * 60 * 60; // 1 hour
+
+  const cachedData = sessionStorage.getItem(CACHE_KEY);
+  let cache: Record<string, { stars: number, timestamp: number }> = {};
+
+  if (cachedData) {
+    try {
+      cache = JSON.parse(cachedData);
+    } catch (e) {}
+  }
+
+  const now = Date.now();
+  const reposToFetch = new Set<string>();
+
+  badges.forEach(badge => {
+    const repo = badge.dataset.repo;
+    if (!repo) return;
+    
+    if (cache[repo] && (now - cache[repo].timestamp < CACHE_EXPIRY)) {
+      updateBadge(badge, cache[repo].stars);
+    } else {
+      reposToFetch.add(repo);
+    }
+  });
+
+  for (const repo of reposToFetch) {
+    try {
+      const res = await fetch(`https://api.github.com/repos/${repo}`);
+      if (!res.ok) continue;
+      const data = await res.json();
+      const stars = data.stargazers_count;
+      
+      cache[repo] = { stars, timestamp: now };
+      
+      const repoBadges = document.querySelectorAll(`.github-stars-badge[data-repo="${repo}"]`) as NodeListOf<HTMLElement>;
+      repoBadges.forEach(b => updateBadge(b, stars));
+    } catch (e) {
+      console.error('Error fetching stars for', repo, e);
+    }
+  }
+
+  sessionStorage.setItem(CACHE_KEY, JSON.stringify(cache));
+};
+
+const updateBadge = (badge: HTMLElement, stars: number) => {
+  if (stars > 0) {
+    badge.classList.remove('hidden');
+    const countSpan = badge.querySelector('.stars-count');
+    if (countSpan) countSpan.textContent = stars.toString();
+  } else {
+    badge.classList.add('hidden');
+  }
+};
+
+// Fetch on load
+fetchGitHubStars();
